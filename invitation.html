@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18th Birthday Debut - Maica Eunice Caballero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero {
+            height: 100vh;
+            background-image: url('/photos/maica_main.jpg');
+            background-attachment: inherit;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 60px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.485);
+            opacity: 0.5;
+            z-index: 1
+        }
+ 
+        .hero-content {
+            position:inherit;
+            z-index: 2;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .save-date-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        .save-date-btn {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #226878, #437b88);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .save-date-btn:hover {
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #437b88;
+        }
+
+        .introduction {
+            text-align: center;
+            background: #fafafa;
+        }
+
+        .introduction p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .event-details {
+            background: white;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .detail-card {
+            background: linear-gradient(135deg, #f5f5f5, #fff);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .detail-card h3 {
+            color: #437b88;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .detail-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .countdown {
+            background: linear-gradient(135deg, #226878, #437b88);
+            color: white;
+            text-align: center;
+        }
+
+        .countdown h2 {
+            color: white;
+        }
+
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255,255,255,0.2);
+            padding: 30px;
+            border-radius: 15px;
+            min-width: 120px;
+        }
+
+        .countdown-item .number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-item .label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .attire {
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .attire-description {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .color-1 { background: #f8e8b4; }
+        .color-2 { background: #f8e8b4; border: 2px solid #ddd; }
+        .color-3 { background: #c7ddf2; }
+
+        .treasures {
+            background: white;
+        }
+
+        .treasures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Increased min-width slightly */
+            gap: 40px;
+        }
+
+        .treasure-category {
+            background: #ffffffbf;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(33, 24, 24, 0.1);
+            /* REMOVED MAX-HEIGHT AND OVERFLOW FOR NO SCROLL */
+            height: 100%;
+        }
+
+        .treasure-category h3 {
+            color: #437b88;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .treasure-list {
+            list-style: none;
+            /* ADDED GRID TO MAKE NAMES FIT IN COLUMNS */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 20px; /* Space between columns */
+        }
+
+        .treasure-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.90rem; /* Slightly smaller text to fit better */
+            white-space: nowrap; /* Keeps names on one line if possible */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .treasure-list li:last-child {
+            border-bottom: none;
+        }
+
+        .gallery {
+            background: #fafafa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #2e8194, #365b63);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .footer h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .treasures-grid {
+                grid-template-columns: 1fr; /* Stack categories on tablet */
+            }
+
+            .countdown-item .number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .save-date-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            /* On small phones, back to 1 column so names fit */
+            .treasure-list {
+                grid-template-columns: 1fr; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Happy 18th Birthday</h1>
+            <p>Maica Eunice Caballero</p>
+            <a href="#details" class="save-date-btn">Save the Date</a>
+        </div>
+    </section>
+
+    <section class="introduction">
+        <h2>A Celebration of Elegance</h2>
+        <p> You’re invited to celebrate our debutante’s 18th birthday!  
+Join us for a special evening of joy, laughter, and unforgettable memories as she marks this important milestone. Let’s come together to honor her journey into womanhood and make this night truly magical.</p>
+    </section>
+
+    <section class="event-details" id="details">
+        <h2>Event Details</h2>
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>Date</h3>
+                <p>Friday<br>February 06, 2026</p>
+            </div>
+            <div class="detail-card">
+                <h3>Time</h3>
+                <p>6:30 PM<br>Onwards</p>
+            </div>
+            <div class="detail-card">
+                <h3>Venue</h3>
+                <p>Villa Reyes Resort<br>Putatan, Muntinlupa City</p>
+            </div>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3864.5939831999717!2d121.04819067510209!3d14.392887486069203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d0f5faaee663%3A0xa7aff36e3fb666fc!2sVilla%20Reyes%20Resort!5e0!3m2!1sen!2sph!4v1769066140236!5m2!1sen!2sph" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section class="countdown">
+        <h2>Countdown to the Celebration</h2>
+        <div class="countdown-display">
+            <div class="countdown-item">
+                <span class="number" id="days">00</span>
+                <span class="label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="number" id="hours">00</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Minutes</span>
+            </div>
+            <div class="countdown-item">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Seconds</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="attire">
+        <h2>Dress Code</h2>
+        <p class="attire-description">Semi-Formal | Fairy Floral Theme<br>Guests are encouraged to wear pastel yellow and blue tones to complement the celebration elegant aesthetic.</p>
+        <div class="color-palette">
+    <div class="color-swatch color-1"></div>
+    <div class="color-swatch color-2"></div>
+    <div class="color-swatch color-3"></div>
+        </div> 
+    </section> 
+
+    <section class="treasures">
+        <h2>Special Traditions</h2>
+        <div class="treasures-grid">
+            <div class="treasure-category">
+                <h3>18 Roses</h3>
+                <ul class="treasure-list">
+                    <li>1. Arnel Caballero</li>
+                    <li>2. Entoy Montierde</li>
+                    <li>3. Jimmuel Caballero</li>
+                    <li>4. Ian Caballero</li>
+                    <li>5. Jlo Caballero</li>
+                    <li>6. Diether Amante</li>
+                    <li>7. Carlo Villanea</li>
+                    <li>8. Rogelio Suarez</li>
+                    <li>9. Reymark Mabugay</li>
+                    <li>10. Jhomary Cababan</li>
+                    <li>11. Dhanmar Caballero</li>
+                    <li>12. Louijie Delos Santos</li>
+                    <li>13. Jian Delos Santos</li>
+                    <li>14. Edgar Dagamas</li>
+                    <li>15. Kien Cabrera</li>
+                    <li>16. Joshua Pradas</li>
+                    <li>17. Johnley Mirasol</li>
+                    <li>18. Webster Tablazon</li>
+                </ul>
+            </div>
+
+            <div class="treasure-category">
+                <h3>18 Candles</h3>
+                <ul class="treasure-list">
+                    <li>1. Krish Cajepe</li>
+                    <li>2. Syvie Cajepe</li>
+                    <li>3. Mj Cipriano</li>
+                    <li>4. Cyril Paclibare</li>
+                    <li>5. Kia Hular</li>
+                    <li>6. Juan Yutis</li>
+                    <li>7. Dayug Jas</li>
+                    <li>8. Ken Arcelo</li>
+                    <li>9. Abby Poras</li>
+                    <li>10. Lorania Hernando</li>
+                    <li>11. Ashley Suarez</li>
+                    <li>12. Ericka Sales</li>
+                    <li>13. Lady Pelayo</li>
+                    <li>14. Mizzy Aleczy</li>
+                    <li>15. Reyn Espiritu</li>
+                    <li>16. Jecca Balisi</li>
+                    <li>17. Neryl Francine Castolo</li>
+                    <li>18. Trixia Amante</li>
+                </ul>
+            </div>
+
+            <div class="treasure-category">
+                <h3>18 Gifts</h3>
+                <ul class="treasure-list">
+                    <li>1. Scarlet Roa</li>
+                    <li>2. Brielle Caballero</li>
+                    <li>3. Amara Rodolfo</li>
+                    <li>4. Katniss La Rosa</li>
+                    <li>5. Allyson Montierde</li>
+                    <li>6. Ryzza Ilaya</li>
+                    <li>7. Nicole Ramos</li>
+                    <li>8. Katherine Caballero</li>
+                    <li>9. Arrabela Amante</li>
+                    <li>10. Chynna Montierde</li>
+                    <li>11. Rhona Caballero</li>
+                    <li>12. Joana Magpantay</li>
+                    <li>13. Shandy Paclibare</li>
+                    <li>14. April Labay</li>
+                    <li>15. Nasel Engalan</li>
+                    <li>16. Felizzi Delos Santos</li>
+                    <li>17. Christine Almodiel</li>
+                    <li>18. Chrizzia San Pedro</li>
+                </ul>
+            </div>
+
+            <div class="treasure-category">
+                <h3>18 Bills</h3>
+                <ul class="treasure-list">
+                    <li>1. Sam Caballero</li>
+                    <li>2. Hector Caballero</li>
+                    <li>3. Arvin Caballero</li>
+                    <li>4. Necita Caballero</li>
+                    <li>5. Joey La Rosa</li>
+                    <li>6. Raine Montierde</li>
+                    <li>7. Louie Delos Santos</li>
+                    <li>8. Anika Pazzibugan</li>
+                    <li>9. Christine Mae Cadiz</li>
+                    <li>10. Floyd Paguio</li>
+                    <li>11. Joan Goma</li>
+                    <li>12. Mac Caballero</li>
+                    <li>13. Monique Casilag</li>
+                    <li>14. Arvie Aquino</li>
+                    <li>15. Paulo Balbanero</li>
+                    <li>16. Brian Moral</li>
+                    <li>17. CJ Caballero</li>
+                    <li>18. Nap Durante</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="/photos/maica_gallery1.jpg" alt="Gallery Photo 1">
+            </div>
+            <div class="gallery-item">
+                <img src="/photos/maica_gallery2.jpg" alt="Gallery Photo 2">
+            </div>
+                <div class="gallery-item">
+                    <img src="/photos/maica_gallery3.jpg" alt="Gallery Photo 3">
+            </div>
+            <div class="gallery-item">
+                <img src="/photos/maica_gallery4.jpg" alt="Gallery Photo 4">
+            </div>
+            <div class="gallery-item">
+                <img src="/photos/maica_gallery5.jpg" alt="Gallery Photo 5">
+            </div>
+            <div class="gallery-item">
+                <img src="/photos/maica_8.jpg" alt="Gallery Photo 6">
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <h2>RSVP</h2>
+        <p>Please confirm your attendance by RSVP Date</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSem6tU9zgGjwQV9NxU94Esi8dRAf6b5LyQNQe73RiIfjfEV-g/viewform?usp=header" onclick="playMusic()">💌 RSVP Here</a>
+        <p style="margin-top: 30px; font-size: 0.9rem;">We cannot wait to celebrate with you!</p>
+    </section>
+
+    <script>
+        var countdownDate = new Date("February 06, 2026 19:00:00").getTime();
+
+        var countdown = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countdownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector('.countdown-display').innerHTML = "<h3>The celebration has begun!</h3>";
+            }
+        }, 1000);
+
+        document.querySelector('.save-date-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#details').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
